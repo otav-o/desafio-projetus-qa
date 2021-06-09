@@ -70,7 +70,23 @@ public final class ArrayUtils {
      * @return A operação foi realizada com sucesso?
      */
     static boolean doOperation(final List<Integer> array, final Operation operation, final Integer value) {
-        return false;
+        switch (operation) {
+            case ADD:
+                array.add(value);
+                return true;
+
+            case REMOVE:
+                int index = findAt(array, value);
+                array.remove(index);
+                return true;
+
+            case EXISTS:
+                exists(array, value);
+                return true;
+
+            default:
+                return false;
+        }
     }
 
     /**
