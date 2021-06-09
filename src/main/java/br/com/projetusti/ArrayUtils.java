@@ -25,8 +25,14 @@ public final class ArrayUtils {
      * @param array lista com um número ímpar de elementos.
      * @return Inteiro que represente a mediana.
      */
-    static int findMedian(final List<Integer> array) {
-        return 0;
+    static int findMedian(final List<Integer> array) throws Exception {
+        int size = array.size();
+        if (size % 2 == 0)
+            throw new Exception("A lista deve ter tamanho ímpar.");
+
+        int medianPosition = (int) Math.ceil(size / 2);
+
+        return array.get(medianPosition);
     }
 
     /**
