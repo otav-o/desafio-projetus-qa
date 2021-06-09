@@ -30,9 +30,9 @@ public final class ArrayUtils {
         if (size % 2 == 0)
             throw new Exception("A lista deve ter tamanho ímpar.");
 
-        int medianPosition = (int) Math.ceil(size / 2);
+        int medianPosition = (int) Math.ceil((double) size / 2);
 
-        return array.get(medianPosition);
+        return medianPosition;
     }
 
     /**
