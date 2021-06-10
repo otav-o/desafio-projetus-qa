@@ -33,4 +33,12 @@ public class StringUtilsTest {
         Assert.assertEquals(true, StringUtils.isEmpty(" "));
         Assert.assertEquals(false, StringUtils.isEmpty(" a"));
     }
+
+    @Test
+    public void getPalindromeTest() {
+        Assert.assertEquals("madaM", StringUtils.getPalindrome("Madam"));
+        Assert.assertEquals("madA m'I madaM", StringUtils.getPalindrome("Madam I'm Adam"));
+        Assert.assertEquals("ovo", StringUtils.getPalindrome("ovo"));
+        Assert.assertEquals("subinoonibus", StringUtils.getPalindrome("subinoonibus"));
+    }
 }
