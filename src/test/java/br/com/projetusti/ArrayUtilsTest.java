@@ -13,6 +13,10 @@ import java.util.stream.Collectors;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class ArrayUtilsTest {
 
@@ -58,5 +62,48 @@ public class ArrayUtilsTest {
         Assertions.assertThrows(Exception.class, () -> {
             ArrayUtils.findMedian(getListInt(TEST_CASE_3));
         });
+    }
+
+    @Test
+    public void findAtCase1Test() throws Exception {
+
+        List<Integer> list = getListInt(TEST_CASE_1);
+
+        Assert.assertEquals(8, ArrayUtils.findAt(list, 2));
+        Assert.assertEquals(0, ArrayUtils.findAt(list, 10));
+        Assert.assertEquals(10, ArrayUtils.findAt(list, 0));
+        Assert.assertEquals(-1, ArrayUtils.findAt(list, 11));
+        Assert.assertEquals(-1, ArrayUtils.findAt(list, -1));
+    }
+
+    @Test
+    public void findAtCase3Test() throws Exception {
+
+        List<Integer> list = getListInt(TEST_CASE_3);
+
+        Assert.assertEquals(5, ArrayUtils.findAt(list, 0));
+        Assert.assertEquals(-1, ArrayUtils.findAt(list, 10));
+        Assert.assertEquals(70, ArrayUtils.findAt(list, 3));
+        Assert.assertEquals(4, ArrayUtils.findAt(list, 1));
+    }
+
+    @DisplayName("Returns false when value does not exist")
+    @ParameterizedTest
+    @ValueSource(ints = {15, 25, -1, 12, -5, 100, 75, -124})
+    public void existsTestFalse(int value) throws Exception {
+
+        List<Integer> list = getListInt(TEST_CASE_1);
+
+        Assertions.assertFalse(ArrayUtils.exists(list, value));
+    }
+
+    @DisplayName("Returns true when value exists")
+    @ParameterizedTest
+    @ValueSource(ints = {5, 4, 3, 70})
+    public void existsTestTrue(int value) throws Exception {
+
+        List<Integer> list = getListInt(TEST_CASE_3);
+
+        Assertions.assertTrue(ArrayUtils.exists(list, value));
     }
 }
