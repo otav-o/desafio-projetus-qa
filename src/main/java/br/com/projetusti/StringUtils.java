@@ -35,7 +35,7 @@ public final class StringUtils {
     static String getPalindrome(final String anything) {
         String palindrome = "";
 
-        for (int i = anything.length() - 1; i > 0; i--)
+        for (int i = anything.length() - 1; i >= 0; i--)
             palindrome += anything.charAt(i);
 
         return palindrome;
@@ -49,7 +49,7 @@ public final class StringUtils {
      */
     static Boolean isEmpty(final String anything) {
 
-        if (anything == null || anything.length() == 0)
+        if (anything == null || anything.trim().length() == 0)
             return true;
 
         return false;
