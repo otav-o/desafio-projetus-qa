@@ -26,17 +26,27 @@ public final class StringUtils {
 
         String palindrome = getPalindrome(anything);
 
-        if (anything.equals(palindrome))
+        if (anything
+                .replaceAll(" ", "")
+                .equalsIgnoreCase(palindrome))
             return true;
 
         return false;
     }
 
+    /**
+     * Retorna o palíndrome de uma String, sem espaços.
+     *
+     * @param anything String
+     * @return A String de trás para frente.
+     */
     static String getPalindrome(final String anything) {
         String palindrome = "";
 
         for (int i = anything.length() - 1; i >= 0; i--)
             palindrome += anything.charAt(i);
+
+        palindrome = palindrome.replaceAll(" ", "");
 
         return palindrome;
     }

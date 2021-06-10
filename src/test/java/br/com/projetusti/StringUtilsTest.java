@@ -37,8 +37,8 @@ public class StringUtilsTest {
     @Test
     public void getPalindromeTest() {
         Assert.assertEquals("madaM", StringUtils.getPalindrome("Madam"));
-        Assert.assertEquals("madA m'I madaM", StringUtils.getPalindrome("Madam I'm Adam"));
+        Assert.assertEquals("madAm'ImadaM", StringUtils.getPalindrome("Madam I'm Adam"));
         Assert.assertEquals("ovo", StringUtils.getPalindrome("ovo"));
-        Assert.assertEquals("subinoonibus", StringUtils.getPalindrome("subinoonibus"));
+        Assert.assertEquals("subinoonibus", StringUtils.getPalindrome("subi no onibus"));
     }
 }
