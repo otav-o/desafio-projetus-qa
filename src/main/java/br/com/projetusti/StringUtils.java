@@ -23,7 +23,22 @@ public final class StringUtils {
      * @return TRUE ou FALSE
      */
     static Boolean isPalindrome(final String anything) {
-        return null;
+
+        String palindrome = getPalindrome(anything);
+
+        if (anything.equals(palindrome))
+            return true;
+
+        return false;
+    }
+
+    static String getPalindrome(final String anything) {
+        String palindrome = "";
+
+        for (int i = anything.length() - 1; i > 0; i--)
+            palindrome += anything.charAt(i);
+
+        return palindrome;
     }
 
     /**
@@ -33,6 +48,10 @@ public final class StringUtils {
      * @return TRUE ou FALSE
      */
     static Boolean isEmpty(final String anything) {
-        return null;
+
+        if (anything == null || anything.length() == 0)
+            return true;
+
+        return false;
     }
 }
