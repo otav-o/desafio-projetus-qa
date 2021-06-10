@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class ArrayUtilsTest {
 
@@ -24,6 +25,11 @@ public class ArrayUtilsTest {
      * Teste Case 2: Lista com os elementos de 1 a 1001 em ordem aleatória.
      */
     private static final String TEST_CASE_2 = "test_case_2.txt";
+
+    /**
+     * Teste Case 3: Lista de tamanho par
+     */
+    private static final String TEST_CASE_3 = "test_case_3.txt";
 
     /**
      * Dado o nome do arquivo, retorna a lista de inteiros nesse arquivo. O números devem estar separados por vírgula.
@@ -45,5 +51,12 @@ public class ArrayUtilsTest {
     @Test
     public void findMedianCase2Test() throws Exception {
         Assert.assertEquals(501, ArrayUtils.findMedian(getListInt(TEST_CASE_2)));
+    }
+
+    @Test
+    public void throwExceptionWhenLengthIsEven() {
+        Assertions.assertThrows(Exception.class, () -> {
+            ArrayUtils.findMedian(getListInt(TEST_CASE_3));
+        });
     }
 }

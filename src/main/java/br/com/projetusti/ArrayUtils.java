@@ -1,5 +1,6 @@
 package br.com.projetusti;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,9 +31,10 @@ public final class ArrayUtils {
         if (size % 2 == 0)
             throw new Exception("A lista deve ter tamanho ímpar.");
 
-        int medianPosition = (int) Math.ceil((double) size / 2);
+        int medianPosition = array.size() / 2;
+        Collections.sort(array);
 
-        return medianPosition;
+        return array.get(medianPosition);
     }
 
     /**
