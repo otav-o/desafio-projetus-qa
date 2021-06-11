@@ -69,7 +69,7 @@ public final class ArrayUtils {
      * @param array     Lista de números inteiros.
      * @param operation Operação a ser realizada.
      * @param value     Valor a ser utilizado na operação.
-     * @return A operação foi realizada com sucesso?
+     * @return Resultado da operação (NOT A operação foi realizada com sucesso?)
      */
     static boolean doOperation(final List<Integer> array, final Operation operation, final Integer value) {
         switch (operation) {
@@ -78,13 +78,15 @@ public final class ArrayUtils {
                 return true;
 
             case REMOVE:
-                int index = findAt(array, value);
-                array.remove(index);
-                return true;
+                if (exists(array, value)) {
+                    int position = array.indexOf(value);
+                    array.remove(position);
+                    return true;
+                }
+                return false;
 
             case EXISTS:
-                exists(array, value);
-                return true;
+                return exists(array, value);
 
             default:
                 return false;
